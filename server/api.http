@@ -1,0 +1,18 @@
+### Register
+POST http://localhost:5007/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Ayesha",
+  "email": "ayesha@gmail.com",
+  "password": "123456"
+}
+
+### Login
+POST http://localhost:5007/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ayesha@gmail.com",
+  "password": "123456"
+}
