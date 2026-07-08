@@ -1,6 +1,6 @@
 # 🚀 Collaborative Project Space
 
-A full-stack MERN application that enables teams to collaborate on projects in real time. Users can create projects, manage tasks using a Kanban board, assign members, track milestones, and monitor project activity through an activity timeline.
+A full-stack MERN application designed to help teams collaborate on projects in real time. Users can create projects, manage tasks through a Kanban board, assign members, track milestones, and monitor project activity through a dedicated timeline.
 
 ---
 
@@ -90,7 +90,7 @@ A full-stack MERN application that enables teams to collaborate on projects in r
 
 ## 📂 Project Structure
 
-```
+```text
 CollaborativeProjectSpace
 │
 ├── client
@@ -119,44 +119,82 @@ CollaborativeProjectSpace
 
 ## ⚙️ Installation
 
-### Clone Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/CollaborativeProjectSpace.git
+cd CollaborativeProjectSpace
 ```
 
+After cloning, choose one of the setup methods below.
+
+---
+
+## Option 1: Docker Installation
+
+Use this option if you want to start the full application stack with Docker.
+
+### Step 1: Build and Start the Containers
+
 ```bash
-cd CollaborativeProjectSpace
+docker compose up --build
+```
+
+This command starts:
+
+- Frontend on `http://localhost:5173`
+- Backend on `http://localhost:5007`
+- MongoDB on `mongodb://localhost:27017`
+
+### Step 2: Open the Application
+
+Visit:
+
+```text
+http://localhost:5173
+```
+
+### Step 3: Stop the Containers
+
+```bash
+docker compose down
 ```
 
 ---
 
-## Backend Setup
+## Option 2: Manual Installation
+
+Use this option if you want to run the frontend, backend, and MongoDB manually on your machine.
+
+### Step 1: Make Sure MongoDB Is Running
+
+Before starting the backend, make sure you have a running MongoDB instance and a valid connection string.
+
+### Step 2: Install Backend Dependencies
 
 ```bash
 cd server
 npm install
 ```
 
-Create a `.env` file inside the **server** folder.
+### Step 3: Create the Backend Environment File
 
-Example:
+Create a `.env` file inside the `server` folder with the following values:
 
 ```env
 PORT=5007
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
+CLIENT_URL=http://localhost:5173
 ```
 
-Run the server
+### Step 4: Start the Backend Server
 
 ```bash
 npm run dev
 ```
 
----
-
-## Frontend Setup
+### Step 5: Start the Frontend in a New Terminal
 
 ```bash
 cd client
@@ -164,15 +202,17 @@ npm install
 npm run dev
 ```
 
-Application runs on
+### Step 6: Open the Application
 
-```
+Frontend:
+
+```text
 http://localhost:5173
 ```
 
-Backend runs on
+Backend:
 
-```
+```text
 http://localhost:5007
 ```
 
@@ -180,7 +220,7 @@ http://localhost:5007
 
 ## 📸 Screenshots
 
-Add screenshots of:
+Suggested screenshots to include:
 
 - Login Page
 - Register Page
@@ -195,12 +235,13 @@ Add screenshots of:
 
 ## 🔒 Environment Variables
 
-The project requires the following environment variables:
+The project uses the following environment variables:
 
-```
+```text
 PORT
 MONGO_URI
 JWT_SECRET
+CLIENT_URL
 ```
 
 **The `.env` file is not included in this repository for security reasons.**
@@ -227,7 +268,6 @@ JWT_SECRET
 **Ayesha Farooq**
 
 BS Computer Science
-
 University of Lahore
 
 GitHub:
@@ -240,4 +280,4 @@ LinkedIn:
 
 ## 📜 License
 
-This project is developed for educational and portfolio purposes.
+This project was developed for educational and portfolio purposes.
