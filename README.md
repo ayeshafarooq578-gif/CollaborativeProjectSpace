@@ -119,18 +119,22 @@ CollaborativeProjectSpace
 
 ## ⚙️ Installation
 
-### Clone Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/CollaborativeProjectSpace.git
 cd CollaborativeProjectSpace
 ```
 
+After cloning, choose one of the setup methods below.
+
 ---
 
-## Docker Setup
+## Option 1: Docker Installation
 
-Run the full application with a single command:
+Use this option if you want to start the full application stack with Docker.
+
+### Step 1: Build and Start the Containers
 
 ```bash
 docker compose up --build
@@ -142,26 +146,40 @@ This command starts:
 - Backend on `http://localhost:5007`
 - MongoDB on `mongodb://localhost:27017`
 
-To stop all services:
+### Step 2: Open the Application
+
+Visit:
+
+```text
+http://localhost:5173
+```
+
+### Step 3: Stop the Containers
 
 ```bash
 docker compose down
 ```
 
-If you prefer not to use Docker, follow the manual setup steps below.
-
 ---
 
-## Backend Setup
+## Option 2: Manual Installation
+
+Use this option if you want to run the frontend, backend, and MongoDB manually on your machine.
+
+### Step 1: Make Sure MongoDB Is Running
+
+Before starting the backend, make sure you have a running MongoDB instance and a valid connection string.
+
+### Step 2: Install Backend Dependencies
 
 ```bash
 cd server
 npm install
 ```
 
-Create a `.env` file inside the `server` folder.
+### Step 3: Create the Backend Environment File
 
-Example:
+Create a `.env` file inside the `server` folder with the following values:
 
 ```env
 PORT=5007
@@ -170,15 +188,13 @@ JWT_SECRET=your_secret_key
 CLIENT_URL=http://localhost:5173
 ```
 
-Start the backend server:
+### Step 4: Start the Backend Server
 
 ```bash
 npm run dev
 ```
 
----
-
-## Frontend Setup
+### Step 5: Start the Frontend in a New Terminal
 
 ```bash
 cd client
@@ -186,13 +202,15 @@ npm install
 npm run dev
 ```
 
-The application runs on:
+### Step 6: Open the Application
+
+Frontend:
 
 ```text
 http://localhost:5173
 ```
 
-The backend runs on:
+Backend:
 
 ```text
 http://localhost:5007
@@ -223,6 +241,7 @@ The project uses the following environment variables:
 PORT
 MONGO_URI
 JWT_SECRET
+CLIENT_URL
 ```
 
 **The `.env` file is not included in this repository for security reasons.**
