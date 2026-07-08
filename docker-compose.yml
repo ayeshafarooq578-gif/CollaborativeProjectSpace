@@ -1,0 +1,51 @@
+services:
+  mongo:
+    image: mongo:8
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      PORT: 5007
+      MONGO_URI: mongodb://mongo:27017/collaborative_project_space
+      JWT_SECRET: local-dev-secret
+      CLIENT_URL: http://localhost:5173
+    ports:
+      - "5007:5007"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    restart: unless-stopped
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    depends_on:
+      - server
+    environment:
+      VITE_API_URL: http://localhost:5007/api
+      VITE_SOCKET_URL: http://localhost:5007
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    restart: unless-stopped
+
+volumes:
+  mongo-data:

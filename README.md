@@ -1,6 +1,6 @@
 # 🚀 Collaborative Project Space
 
-A full-stack MERN application that enables teams to collaborate on projects in real time. Users can create projects, manage tasks using a Kanban board, assign members, track milestones, and monitor project activity through an activity timeline.
+A full-stack MERN application designed to help teams collaborate on projects in real time. Users can create projects, manage tasks through a Kanban board, assign members, track milestones, and monitor project activity through a dedicated timeline.
 
 ---
 
@@ -90,7 +90,7 @@ A full-stack MERN application that enables teams to collaborate on projects in r
 
 ## 📂 Project Structure
 
-```
+```text
 CollaborativeProjectSpace
 │
 ├── client
@@ -123,11 +123,32 @@ CollaborativeProjectSpace
 
 ```bash
 git clone https://github.com/yourusername/CollaborativeProjectSpace.git
-```
-
-```bash
 cd CollaborativeProjectSpace
 ```
+
+---
+
+## Docker Setup
+
+Run the full application with a single command:
+
+```bash
+docker compose up --build
+```
+
+This command starts:
+
+- Frontend on `http://localhost:5173`
+- Backend on `http://localhost:5007`
+- MongoDB on `mongodb://localhost:27017`
+
+To stop all services:
+
+```bash
+docker compose down
+```
+
+If you prefer not to use Docker, follow the manual setup steps below.
 
 ---
 
@@ -138,7 +159,7 @@ cd server
 npm install
 ```
 
-Create a `.env` file inside the **server** folder.
+Create a `.env` file inside the `server` folder.
 
 Example:
 
@@ -146,9 +167,10 @@ Example:
 PORT=5007
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
+CLIENT_URL=http://localhost:5173
 ```
 
-Run the server
+Start the backend server:
 
 ```bash
 npm run dev
@@ -164,15 +186,15 @@ npm install
 npm run dev
 ```
 
-Application runs on
+The application runs on:
 
-```
+```text
 http://localhost:5173
 ```
 
-Backend runs on
+The backend runs on:
 
-```
+```text
 http://localhost:5007
 ```
 
@@ -180,7 +202,7 @@ http://localhost:5007
 
 ## 📸 Screenshots
 
-Add screenshots of:
+Suggested screenshots to include:
 
 - Login Page
 - Register Page
@@ -195,9 +217,9 @@ Add screenshots of:
 
 ## 🔒 Environment Variables
 
-The project requires the following environment variables:
+The project uses the following environment variables:
 
-```
+```text
 PORT
 MONGO_URI
 JWT_SECRET
@@ -227,7 +249,6 @@ JWT_SECRET
 **Ayesha Farooq**
 
 BS Computer Science
-
 University of Lahore
 
 GitHub:
@@ -240,4 +261,4 @@ LinkedIn:
 
 ## 📜 License
 
-This project is developed for educational and portfolio purposes.
+This project was developed for educational and portfolio purposes.
